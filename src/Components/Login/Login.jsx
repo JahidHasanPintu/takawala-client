@@ -1,18 +1,95 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import loginBg from '../../Assets/Images/wallet-bg.png';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { auth } from '../../firebase/firebase.init';
+import { toast } from 'react-toastify';
 const Login = () => {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const location = useLocation();
+    const navigate = useNavigate();
+
+    let from = location.state?.from?.pathname || "/";
+    const [
+        signInWithEmailAndPassword,
+        user1,
+        loading,
+        error1,
+    ] = useSignInWithEmailAndPassword(auth);
+
+    const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
+
+    const [signInWithGoogle, user, error] = useSignInWithGoogle(auth);
+
+
+    // const storeUserData = async (userData) => {
+    //     try {
+    //       const response = await axios.post(`${getApiUrl()}/users/create`, userData);
+    //       console.log(response.data);
+    //     } catch (error) {
+    //       console.error(error);
+    //     }
+    //   };
+
+    useEffect(() => {
+        if (user) {
+            const userData = {
+                type: "google",
+                fullname: user._tokenResponse.fullName,
+                email: user._tokenResponse.email,
+                photoUrl: user._tokenResponse.photoUrl
+            }
+            //   storeUserData(userData);
+            toast('Login Successfull!!');
+            console.log(user._tokenResponse);
+            navigate(from, { replace: true });
+        }
+    }, [user]);
+
+
+    const handleEmailPassLogin = async event => {
+        event.preventDefault(); // Add this line to prevent page refresh
+        console.log(email, password);
+        try {
+            await signInWithEmailAndPassword(email, password);
+            toast('Login Successful!!');
+            navigate(from, { replace: true });
+        } catch (error) {
+            toast(error.message);
+        }
+    }
+
+    const resetPassword = async () => {
+        if (email) {
+            await sendPasswordResetEmail(email);
+            toast('Email sent');
+        } else {
+            toast('Please enter email address.');
+        }
+
+    }
+
+
+    // Register form navigator 
+
+    const navigateRegister = event => {
+        navigate('/register');
+    }
+
+    // Password Reset option
     return (
         <div>
             <div className="min-h-screen bg-gray-100 text-gray-900 flex justify-center">
                 <div className="max-w-screen-xl m-0 sm:m-10 bg-white shadow sm:rounded-lg flex justify-center flex-1">
                     <div className="lg:w-1/2 xl:w-5/12 p-6 sm:p-12">
-                        <div>
+                        {/* <div>
                             <h1 className='font-bold text-3xl text-blue-600'>
                                 Taka Wala
                             </h1>
-                        </div>
+                        </div> */}
                         <div className="mt-12 flex flex-col items-center">
-                            <h1 className="text-2xl xl:text-3xl font-extrabold">Sign up</h1>
+                            <h1 className="text-2xl xl:text-3xl font-extrabold">Login</h1>
                             <div className="w-full flex-1 mt-8">
                                 <div className="mx-auto max-w-xs">
                                     <input
@@ -31,26 +108,23 @@ const Login = () => {
                                             <circle cx="8.5" cy="7" r="4" />
                                             <path d="M20 8v6M23 11h-6" />
                                         </svg>
-                                        <span className="ml-3">Sign Up</span>
+                                        <span className="ml-3">Login</span>
                                     </button>
                                     <p className="mt-6 text-xs text-gray-600 text-center">
-                                        I agree to abide by templatana's{' '}
-                                        <a href="#" className="border-b border-gray-500 border-dotted">
-                                            Terms of Service
-                                        </a>{' '}
-                                        and its{' '}
-                                        <a href="#" className="border-b border-gray-500 border-dotted">
-                                            Privacy Policy
-                                        </a>
+                                        Don't have any account? <Link to="/register" className="border-b border-gray-500 border-dotted">
+                                        Register Now
+                                        </Link>
                                     </p>
                                 </div>
                                 <div className="my-12 border-b text-center">
                                     <div className="leading-none px-2 inline-block text-sm text-gray-600 tracking-wide font-medium bg-white transform translate-y-1/2">
-                                        Or sign up
+                                        Or Login with
                                     </div>
                                 </div>
                                 <div className="flex flex-col items-center">
-                                    <button className="w-full max-w-xs font-bold shadow-sm rounded-lg py-3 bg-indigo-100 text-gray-800 flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow focus:shadow-sm focus:shadow-outline">
+                                    <button 
+                                    onClick={signInWithGoogle}
+                                    className="w-full max-w-xs font-bold shadow-sm rounded-lg py-3 bg-indigo-100 text-gray-800 flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow focus:shadow-sm focus:shadow-outline">
                                         <div className="bg-white p-2 rounded-full">
                                             <svg className="w-4" viewBox="0 0 533.5 544.3">
                                                 <path
