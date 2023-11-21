@@ -9,6 +9,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Profile from './Components/Profile/Profile';
 import Setting from './Components/Setting/Setting';
+import RequireAuth from './Components/RequireAuth/RequireAuth';
 
 function App() {
   return (
@@ -20,8 +21,8 @@ function App() {
 
         <Route path="login" element={<Login />}></Route>
         <Route path="register" element={<Register />}></Route>
-        <Route path="profile" element={<Profile />}></Route>
-        <Route path="setting" element={<Setting />}></Route>
+        <Route path="profile" element={<RequireAuth> <Profile /></RequireAuth>}></Route>
+        <Route path="setting" element={ <RequireAuth><Setting /></RequireAuth> }></Route>
         {/* <Route path="/account/*" element={<RequireAuth>
           <Account />
         </RequireAuth>}></Route> */}
