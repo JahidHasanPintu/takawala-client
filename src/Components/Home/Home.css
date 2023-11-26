@@ -1,0 +1,111 @@
+
+.gPKrSb {
+    position: relative;
+    /* margin-top: 80px; */
+}
+.gPKrSb .width-wrapper {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0px;
+    height: 100%;
+    width: 100%;
+    display: flex;
+}
+.width-wrapper {
+    margin: 0 auto;
+    max-width: 1238px;
+    padding: 0 34px;
+    position: relative;
+    width: 100%;
+}
+.gPKrSb .content-wrapper {
+    display: flex;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    justify-content: center;
+}
+.gPKrSb .content-wrapper h1 {
+    color: rgb(0, 0, 0);
+    font-size: 48px;
+    max-width: 600px;
+    line-height: 68px;
+    font-family: AvenirNext;
+    font-weight: 700;
+}
+.content-wrapper h3 {
+    margin: 17px 0px 24px;
+    font-family: Lato;
+    line-height: 32px;
+    letter-spacing: -0.2px;
+    color: rgb(26, 26, 26);
+    font-size: 24px;
+}
+
+.width-wrapper .mokam-button {
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: #448aff;
+    border: none;
+    border-radius: 6px;
+    color: #fff;
+    cursor: pointer;
+    display: block;
+    font-family: Lato;
+    font-size: 16px;
+    font-weight: 700;
+    height: 50px;
+    line-height: inherit;
+    padding: 17px 13px;
+    text-align: center;
+    width: 290px;
+    margin-left: 150px;
+}
+.gPKrSb img {
+    display: block;
+    width: 100%;
+}
+
+@media (max-width: 767px){
+    .gPKrSb .width-wrapper .content-wrapper {
+        text-align: center;
+        width: 100%;
+    }
+    .gPKrSb {
+        margin-top: 66px;
+    }
+    .width-wrapper {
+        padding: 0 15px;
+    }
+    .gPKrSb .width-wrapper .content-wrapper {
+        text-align: center;
+        width: 100%;
+    }
+    .gPKrSb .width-wrapper .content-wrapper h1 {
+        font-size: 38px;
+        line-height: 49px;
+        margin: 0px auto;
+        max-width: 80vw;
+    }
+    .gPKrSb .width-wrapper .content-wrapper h3 {
+        max-width: 270px;
+        font-size: 20px;
+        text-align: center;
+        display: block;
+        margin: 13px auto 40px;
+    }
+    .gPKrSb .width-wrapper .content-wrapper a {
+        width: 100%;
+    }
+}
+
+@media (max-width: 1024px){
+    .gPKrSb .width-wrapper h1 {
+        color: rgb(255, 255, 255);
+        max-width: 535px;
+    }
+    .gPKrSb .width-wrapper h3 {
+        color: rgb(255, 255, 255);
+    }
+}
+
