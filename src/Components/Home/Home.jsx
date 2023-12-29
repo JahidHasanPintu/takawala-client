@@ -3,9 +3,11 @@ import './Home.css';
 import headerImage from '../../Assets/Images/main-pic-hero.png';
 import Feature from './Feature/Feature';
 import GetApp from './GetApp/GetApp';
+import HeroCustomer from '../HeroCustomer/HeroCustomer';
 const Home = () => {
     return (
         <div>
+            <HeroCustomer/>
             <div className="sc-gKclnd gPKrSb">
                 <picture>
                     <source media="(min-width:1025px)" srcSet={headerImage} />

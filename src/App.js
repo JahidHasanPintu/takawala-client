@@ -13,7 +13,7 @@ import RequireAuth from './Components/RequireAuth/RequireAuth';
 
 function App() {
   return (
-    <div className="App">
+    <div className="">
       <Navbar/>
       <Routes>
 

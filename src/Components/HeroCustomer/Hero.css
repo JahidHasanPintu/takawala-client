@@ -1,0 +1,123 @@
+.hero-container {
+    display: inline-flex;
+    padding: 54px 54px 80px 130px;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.left-section {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* gap: 70px; */
+}
+
+.left-section h2 {
+    color: #1E1E1E;
+    /* font-family: Averta; */
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.left-section p {
+    color: #474747;
+    /* font-family: Averta; */
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.apply-btn {
+    margin-top: 85px;
+    background-color: #0FA76C;
+    width: 115px;
+    border-radius: 43px;
+    display: flex;
+    width: 222px;
+    padding: 15px 25px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    color: #FFF;
+    /* font-family: Averta; */
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.right-section {
+    width: 619px;
+    height: 566px;
+    flex-shrink: 0;
+}
+
+
+.circle {
+    width: 477px;
+    height: 477px;
+    flex-shrink: 0;
+    border-radius: 477px;
+    background: #0FA76C;
+}
+
+.right-image {
+    width: 474px;
+    height: 566px;
+    flex-shrink: 0;
+    background: url('../../Assets/Images/imageOldMan.png'), 0px -18.246px / 100% 126.37% no-repeat;
+}
+
+.items {
+    display: inline-flex;
+    padding: 10px 1px 10px 10px;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+
+    border-radius: 10px;
+    border: 0.5px solid #FFF;
+    background: rgba(255, 255, 255, 0.90);
+    box-shadow: 0px 4px 8.1px 1px rgba(0, 0, 0, 0.13);
+    backdrop-filter: blur(20.049999237060547px);
+}
+
+.items-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.items-text h4 {
+    color: #474747;
+    /* font-family: Averta; */
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.items-text p {
+    width: 129px;
+    color: #474747;
+    /* font-family: Averta; */
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.ln-success{
+    margin-bottom: 64px;
+}
+.approv-ration{
+    margin-top: 261px;
+}
+
+.partner-bank{
+    
+}
